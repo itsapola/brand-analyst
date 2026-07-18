@@ -30,7 +30,8 @@ html {
 }
 
 body {
-  background: var(--paper);
+  background-color: var(--paper);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M48 0H0V48' fill='none' stroke='%23171817' stroke-opacity='0.05' stroke-width='1'/%3E%3C/svg%3E");
   color: var(--ink);
   font-family: var(--body);
   font-size: 18px;
@@ -149,6 +150,9 @@ nav {
 .pstep {
   padding: 24px 24px 24px 0;
   border-right: 1px solid var(--hair);
+}
+.pstep:not(:first-child) {
+  padding-left: 24px;
 }
 .pstep:last-child {
   border-right: none;

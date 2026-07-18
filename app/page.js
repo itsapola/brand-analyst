@@ -66,10 +66,9 @@ export default function Home() {
             communicating.
           </h1>
           <p className="lede">
-            A structured, evidence-led audit of clarity, positioning,
-            differentiation, trust, and conversion — built for strategic
-            review, not generic AI commentary. Homepage content only.
-            Strategic conclusions require human review.
+            A structured, evidence-led audit of your homepage's clarity,
+            positioning, differentiation, trust, and conversion. Built for
+            your strategic review.
           </p>
         </section>
 
@@ -111,7 +110,7 @@ export default function Home() {
               onChange={(e) => setUrl(e.target.value)}
             />
             <div className="hint">
-              Must be a publicly accessible page — no logins or gated
+              Must be a publicly accessible page. No logins or gated
               content.
             </div>
           </div>

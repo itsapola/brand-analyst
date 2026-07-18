@@ -26,7 +26,7 @@ Do three things:
 
 If the extracted content is too thin to evaluate honestly (e.g. mostly navigation, a loading page, or blocked content), say so directly in the headline field and give low scores with rationale explaining why, rather than fabricating an evaluation.
 
-Respond with ONLY valid JSON in this exact shape, no markdown fences, no preamble:
+Respond with ONLY valid, parseable JSON in this exact shape — no markdown fences, no preamble, no text before or after the JSON object. If you quote or paraphrase text from the page inside a rationale, issue, or recommendation, do not use raw double quotes around it — use single quotes or drop the quotation marks entirely, and escape any double quote character you do use as \\". The entire response must be a single valid JSON object parseable by JSON.parse with no modification:
 {"extracted": {"headline": "...", "subhead": "..."}, "categories": [{"name": "Clarity", "score": 7, "rationale": "..."}], "actionPlan": [{"issue": "...", "recommendation": "..."}]}`;
 
 function extractVisibleText(html) {
@@ -123,7 +123,7 @@ export async function POST(req) {
       },
       body: JSON.stringify({
         model: "claude-sonnet-5",
-        max_tokens: 2500,
+        max_tokens: 3200,
         system: SYSTEM_PROMPT,
         messages: [
           {
@@ -145,16 +145,34 @@ export async function POST(req) {
     const data = await response.json();
     const textBlock = (data.content || []).find((b) => b.type === "text");
     const raw = textBlock ? textBlock.text : "";
-    const cleaned = raw.replace(/```json|```/g, "").trim();
+    let cleaned = raw.replace(/```json|```/g, "").trim();
 
     let parsed;
     try {
       parsed = JSON.parse(cleaned);
     } catch {
-      return NextResponse.json(
-        { error: "Model response wasn't valid JSON. Try again." },
-        { status: 502 }
-      );
+      // Fallback: the model may have added stray text before/after the JSON
+      // object. Extract the substring from the first { to the last } and
+      // retry once before giving up.
+      const start = cleaned.indexOf("{");
+      const end = cleaned.lastIndexOf("}");
+      if (start !== -1 && end !== -1 && end > start) {
+        try {
+          parsed = JSON.parse(cleaned.slice(start, end + 1));
+        } catch {
+          console.error("JSON parse failed twice. Raw model output:", raw);
+          return NextResponse.json(
+            { error: "Model response wasn't valid JSON. Try again." },
+            { status: 502 }
+          );
+        }
+      } else {
+        console.error("No JSON object found. Raw model output:", raw);
+        return NextResponse.json(
+          { error: "Model response wasn't valid JSON. Try again." },
+          { status: 502 }
+        );
+      }
     }
 
     if (!parsed.categories || !Array.isArray(parsed.categories)) {

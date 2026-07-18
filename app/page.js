@@ -122,7 +122,8 @@ export default function Home() {
             </button>
             {error && <span className="status err">{error}</span>}
             {loading && (
-              <span className="status">
+              <span className="status" style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}>
+                <svg className="spinner-star" viewBox="0 0 20 20" aria-hidden="true"><line x1="10" y1="1" x2="10" y2="19" /><line x1="1" y1="10" x2="19" y2="10" /><line x1="3.6" y1="3.6" x2="16.4" y2="16.4" /><line x1="16.4" y1="3.6" x2="3.6" y2="16.4" /></svg>
                 Fetching the page, scoring against the rubric…
               </span>
             )}
@@ -193,6 +194,7 @@ export default function Home() {
       </div>
 
       <footer>
+        <svg className="orbit-mark" viewBox="0 0 40 40" aria-hidden="true"><ellipse cx="20" cy="20" rx="18" ry="7" transform="rotate(-20 20 20)" /><ellipse cx="20" cy="20" rx="18" ry="7" transform="rotate(40 20 20)" /><circle cx="20" cy="20" r="2.5" /></svg>
         <span>Ashley Pola © 2026</span>
         <span>
           Homepage content only. Strategic conclusions require human

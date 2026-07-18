@@ -7,7 +7,7 @@ A structured, evidence-led audit of homepage clarity, positioning, differentiati
 ## What changed in this rebuild
 
 - **Runs on the Anthropic API (Claude) instead of OpenAI.** Same audit logic, different model provider.
-- **Branding now matches the rest of the tool set** — same design tokens (paper/ink/persimmon, Space Grotesk/Fraunces/Newsreader/JetBrains Mono) as the [Category Thesis Generator](https://category-thesis-generator.vercel.app/) and [Technical-to-Buyer Translator](https://technical-translator.vercel.app/), so all three read as one built system rather than three one-off experiments.
+- **Branding now matches the rest of the tool set** — same design tokens (paper/ink/persimmon, Neue Montreal/Switzer/IBM Plex Mono) as the [Category Thesis Generator](https://category-thesis-generator.vercel.app/) and [Technical-to-Buyer Translator](https://technical-translator.vercel.app/), so all three read as one built system rather than three one-off experiments.
 - Same three-stage flow as the original: **Extract → Evaluate → Prioritize**.
 
 ## What it does

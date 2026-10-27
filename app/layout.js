@@ -41,7 +41,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>{children}<script dangerouslySetInnerHTML={{ __html: "window.addEventListener('load',function(){if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){document.querySelectorAll('svg').forEach(function(s){s.pauseAnimations&&s.pauseAnimations()})}})" }} /></body>
     </html>
   );
 }

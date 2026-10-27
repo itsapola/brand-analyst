@@ -51,7 +51,7 @@ export default function Home() {
     <>
       <nav>
         <span className="brand">
-          <a href="https://ashleypola.com"><svg className="navmark" viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="16" cy="16" rx="13" ry="6" fill="none" stroke="var(--persimmon)" strokeWidth="2.4" transform="rotate(-28 16 16)" /><circle cx="16" cy="16" r="3.4" fill="var(--ink)" /><circle cx="27.3" cy="9.9" r="2.6" fill="var(--persimmon)" /></svg>Ashley Pola</a>
+          <a href="https://ashleypola.com"><svg className="navmark" viewBox="0 0 32 32" aria-hidden="true"><g transform="rotate(-28 16 16)"><ellipse cx="16" cy="16" rx="13" ry="6" fill="none" stroke="var(--persimmon)" strokeWidth="2.4" /><circle r="2.6" fill="var(--persimmon)"><animateMotion dur="6s" repeatCount="indefinite" path="M29 16 a13 6 0 1 1 -26 0 a13 6 0 1 1 26 0" /></circle></g><circle cx="16" cy="16" r="3.4" fill="var(--ink)" /></svg>Ashley Pola</a>
         </span>
         <a className="navback" href="https://ashleypola.com/tools.html">
           ← All tools

@@ -10,10 +10,12 @@
   --persimmon: #C8322B;
   --persimmon-tx: #A8281F;
   --butter: #dce8b0;
-  --grotesk: "Neue Montreal", sans-serif;
-  --serif: "Switzer", sans-serif;
-  --body: "Switzer", sans-serif;
-  --mono: "IBM Plex Mono", ui-monospace, monospace;
+  --grotesk: "Instrument Serif", Georgia, serif;
+  --sans: "Geist", system-ui, sans-serif;
+  --stroke: rgba(14, 34, 64, 0.8);
+  --serif: "Instrument Serif", Georgia, serif;
+  --body: "Geist", system-ui, sans-serif;
+  --mono: "Geist Mono", ui-monospace, monospace;
   --hair: #0E2240;
   --hair-soft: #0E2240;
   --e: cubic-bezier(0.16, 1, 0.3, 1);
@@ -55,10 +57,10 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 22px clamp(20px, 5vw, 48px);
-  border-bottom: 2px solid var(--hair-soft);
+  border-bottom: 1px solid var(--stroke);
 }
 .brand {
-  font-family: var(--grotesk);
+  font-family: var(--sans);
   font-weight: 700;
   font-size: 17px;
   letter-spacing: 0;
@@ -116,11 +118,11 @@ nav {
 }
 .hero h1 {
   font-family: var(--grotesk);
-  font-weight: 700;
+  font-weight: 400;
   font-size: clamp(34px, 5.6vw, 68px);
   line-height: 0.98;
-  letter-spacing: 0;
-  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  text-transform: none;
   margin: 22px 0 0;
   max-width: 18ch;
 }
@@ -143,13 +145,13 @@ nav {
 .process {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border-top: 2px solid var(--ink);
-  border-bottom: 2px solid var(--hair);
+  border-top: 1px solid var(--stroke);
+  border-bottom: 1px solid var(--stroke);
   margin: clamp(36px, 6vh, 56px) 0;
 }
 .pstep {
   padding: 24px 24px 24px 0;
-  border-right: 2px solid var(--hair);
+  border-right: 1px solid var(--stroke);
 }
 .pstep:not(:first-child) {
   padding-left: 24px;
@@ -165,7 +167,7 @@ nav {
   margin-bottom: 8px;
 }
 .pstep h4 {
-  font-family: var(--grotesk);
+  font-family: var(--sans);
   font-weight: 700;
   font-size: 16px;
   letter-spacing: 0;
@@ -183,7 +185,7 @@ nav {
   }
   .pstep {
     border-right: none;
-    border-bottom: 2px solid var(--hair);
+    border-bottom: 1px solid var(--stroke);
     padding: 20px 0;
   }
 }
@@ -191,7 +193,7 @@ nav {
 /* form */
 .formcard {
   background: var(--paper-deep);
-  border: 2px solid var(--hair);
+  border: 1px solid var(--stroke);
   border-radius: 2px;
   padding: clamp(24px, 4vw, 40px);
   margin-bottom: clamp(40px, 7vh, 64px);
@@ -214,7 +216,7 @@ nav {
 .field input {
   width: 100%;
   background: var(--paper);
-  border: 2px solid var(--hair);
+  border: 1px solid var(--stroke);
   border-radius: 2px;
   padding: 14px 16px;
   font-family: var(--mono);
@@ -277,7 +279,7 @@ nav {
 
 /* extracted summary */
 .extract {
-  border: 2px dashed var(--hair);
+  border: 1px dashed var(--stroke);
   border-radius: 2px;
   padding: 20px 24px;
   margin-top: clamp(28px, 4vh, 40px);
@@ -326,7 +328,7 @@ nav {
 
 /* scorecard */
 .scorecard {
-  border-top: 2px solid var(--ink);
+  border-top: 1px solid var(--stroke);
   margin-bottom: clamp(40px, 6vh, 60px);
 }
 .scorerow {
@@ -335,10 +337,10 @@ nav {
   gap: 20px;
   align-items: center;
   padding: 18px 0;
-  border-bottom: 2px solid var(--hair);
+  border-bottom: 1px solid var(--stroke);
 }
 .scorerow .scat {
-  font-family: var(--grotesk);
+  font-family: var(--sans);
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 0;
@@ -379,7 +381,7 @@ nav {
 
 /* action plan */
 .actionitem {
-  border: 2px solid var(--hair);
+  border: 1px solid var(--stroke);
   border-radius: 2px;
   padding: clamp(20px, 3vw, 28px);
   margin-bottom: 16px;
@@ -387,18 +389,18 @@ nav {
 }
 .actionitem .anum {
   font-family: var(--grotesk);
-  font-weight: 700;
+  font-weight: 400;
   font-size: 28px;
   color: var(--persimmon);
   line-height: 1;
-  letter-spacing: 0;
+  letter-spacing: -0.01em;
   margin-bottom: 10px;
 }
 .actionitem h4 {
   font-family: var(--grotesk);
-  font-weight: 700;
+  font-weight: 400;
   font-size: 18px;
-  letter-spacing: 0;
+  letter-spacing: -0.01em;
   margin-bottom: 10px;
 }
 .actionitem p {
@@ -408,7 +410,7 @@ nav {
 }
 
 footer {
-  border-top: 2px solid var(--hair);
+  border-top: 1px solid var(--stroke);
   padding: 26px clamp(20px, 5vw, 48px);
   display: flex;
   justify-content: space-between;
@@ -501,12 +503,9 @@ footer a {
 :root { --navy: #0E2240; --grid: #DCE8F3; --grid-major: #BCD3EA; }
 body {
   background-color: var(--paper);
-  background-image:
-    linear-gradient(var(--grid-major) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px;
+  background-image: radial-gradient(circle, rgba(188, 211, 234, 0.5) 1.5px, transparent 1.6px);
+  background-size: 24px 24px;
+  background-position: 12px 12px;
 }
 nav { background: rgba(247, 249, 252, 0.9); }
 .navmark { width: 34px !important; height: 34px !important; }
@@ -516,7 +515,7 @@ nav { background: rgba(247, 249, 252, 0.9); }
 /* cards and fields sit on white */
 .formcard, .extract, .actionitem, .field input, .field textarea, .field select,
 input[type="text"], input[type="url"], textarea, select { background: #fff !important; }
-.field input, .field textarea, .field select { border-color: var(--navy) !important; }
+.field input, .field textarea, .field select { border-color: var(--stroke) !important; }
 .btn:hover:not(:disabled) { background: var(--navy) !important; border-color: var(--navy) !important; }
 /* score bars need a light track now that hairlines are navy */
 .sbar-track { background: #DCE6F0 !important; }
@@ -528,3 +527,30 @@ input[type="text"], input[type="url"], textarea, select { background: #fff !impo
 
 /* keep footer text clear of the spinning orbit mark */
 footer { padding-right: calc(clamp(20px, 5vw, 48px) + 40px); }
+
+/* ---- Editorial type + CTA corners (matches ashleypola.com, Nov 2026) ---- */
+.hero h1 { font-size: clamp(40px, 6.4vw, 80px); line-height: 0.98; }
+.hero h1 .hl { font-style: italic; }
+/* No hover star; the corner frames are the hover cue */
+.btn::after { display: none !important; }
+/* Small outlined circles on each corner; 1px corner frames on hover */
+.btn { --corner-ring: rgba(200, 50, 43, 0.3); }
+.btn:hover:not(:disabled), .btn:focus-visible { --corner-ring: rgba(14, 34, 64, 0.3); }
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  pointer-events: none;
+  --ring: radial-gradient(circle closest-side, transparent 76%, var(--corner-ring) 82%, var(--corner-ring) 94%, transparent 100%);
+  background: var(--ring) left top / 14px 14px no-repeat, var(--ring) right top / 14px 14px no-repeat,
+    var(--ring) left bottom / 14px 14px no-repeat, var(--ring) right bottom / 14px 14px no-repeat;
+}
+.btn:hover:not(:disabled)::before, .btn:focus-visible::before {
+  inset: -6px;
+  --bk: linear-gradient(var(--corner-ring), var(--corner-ring));
+  background: var(--bk) left top / 12px 1px no-repeat, var(--bk) left top / 1px 12px no-repeat,
+    var(--bk) right top / 12px 1px no-repeat, var(--bk) right top / 1px 12px no-repeat,
+    var(--bk) left bottom / 12px 1px no-repeat, var(--bk) left bottom / 1px 12px no-repeat,
+    var(--bk) right bottom / 12px 1px no-repeat, var(--bk) right bottom / 1px 12px no-repeat;
+}
+.btn:disabled::before { display: none; }
